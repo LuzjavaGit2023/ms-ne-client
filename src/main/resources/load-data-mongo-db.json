@@ -1,0 +1,30 @@
+[
+  {
+    "documentType": "DNI",
+    "documentNumber": "44852102",
+    "name": "Angely",
+    "lastName": "Parazala",
+    "clientType": "NATURAL"
+  },
+  {
+    "documentType": "DNI",
+    "documentNumber": "44000108",
+    "name": "Carlos Juan",
+    "lastName": "Perez Nova",
+    "clientType": "NATURAL"
+  },
+  {
+    "documentType": "RUC",
+    "documentNumber": "10885201290",
+    "name": "PASA LA VOZ S.A.C.",
+    "lastName": "",
+    "clientType": "BUSINESS"
+  },
+  {
+    "documentType": "RUC",
+    "documentNumber": "10999666333",
+    "name": "RADIO MODA S.A.C.",
+    "lastName": "",
+    "clientType": "BUSINESS"
+  }
+]
