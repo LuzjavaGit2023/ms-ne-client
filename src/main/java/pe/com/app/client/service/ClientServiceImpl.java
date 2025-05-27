@@ -7,7 +7,6 @@ import pe.com.app.client.common.config.DocumentType;
 import pe.com.app.client.common.mapper.ClientMapper;
 import pe.com.app.client.common.util.Constant;
 import pe.com.app.client.model.dto.ClientDto;
-import pe.com.app.client.model.persistence.ClientEntity;
 import pe.com.app.client.repository.ClientRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -60,12 +59,18 @@ public class ClientServiceImpl implements ClientService {
         return repository.findById(id)
                 .switchIfEmpty(Mono.error(new IllegalStateException(Constant.ELEMENT_NOT_FOUND)))
                 .flatMap(existing ->
-                        repository.findByDocumentTypeAndDocumentNumber(existing.getDocumentType(), obj.getDocumentNumber())
+                        repository.findByDocumentTypeAndDocumentNumber(existing.getDocumentType(),
+                                        obj.getDocumentNumber())
                                 .filter(entity -> !entity.getId().equals(id))
                                 .hasElements()
                                 .flatMap(redundant -> {
-                                    if (redundant) return Mono.error(new IllegalStateException(Constant.ELEMENT_EXIST_BY_DOCUMENT));
-                                    else return repository.save(ClientMapper.buildEntity(obj, id));
+                                    if (redundant) {
+                                        return Mono.error(new IllegalStateException(
+                                                Constant.ELEMENT_EXIST_BY_DOCUMENT));
+                                    }
+                                    else {
+                                        return repository.save(ClientMapper.buildEntity(obj, id));
+                                    }
                                 })
                 )
                 .then();

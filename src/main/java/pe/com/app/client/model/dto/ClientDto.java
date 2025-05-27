@@ -1,13 +1,12 @@
 package pe.com.app.client.model.dto;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pe.com.app.client.common.config.ClientType;
 import pe.com.app.client.common.config.DocumentType;
-
-import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor

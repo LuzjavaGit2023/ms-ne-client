@@ -1,6 +1,6 @@
 package pe.com.app.client.common.mapper;
 
-import pe.com.app.client.model.dto.*;
+import pe.com.app.client.model.dto.ClientDto;
 import pe.com.app.client.model.persistence.ClientEntity;
 
 public class ClientMapper {

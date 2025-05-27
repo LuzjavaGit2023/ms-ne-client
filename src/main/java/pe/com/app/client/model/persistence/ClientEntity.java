@@ -1,5 +1,6 @@
 package pe.com.app.client.model.persistence;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,8 +9,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import pe.com.app.client.common.config.ClientType;
 import pe.com.app.client.common.config.DocumentType;
-
-import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
