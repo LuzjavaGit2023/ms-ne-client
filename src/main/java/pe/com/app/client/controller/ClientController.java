@@ -93,7 +93,7 @@ public class ClientController {
      * @return Void Mono.
      */
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "This method is used to replace element.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Successful operation"),

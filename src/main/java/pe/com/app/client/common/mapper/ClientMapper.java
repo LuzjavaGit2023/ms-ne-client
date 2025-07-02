@@ -13,6 +13,8 @@ public class ClientMapper {
                 .name(e.getName())
                 .lastName(e.getLastName())
                 .clientType(e.getClientType())
+                .cell(e.getCell())
+                .email(e.getEmail())
                 .build();
     }
 
@@ -23,6 +25,8 @@ public class ClientMapper {
                 .name(e.getName())
                 .lastName(e.getLastName())
                 .clientType(e.getClientType())
+                .cell(e.getCell())
+                .email(e.getEmail())
                 .build();
     }
 
@@ -34,6 +38,8 @@ public class ClientMapper {
                 .name(e.getName())
                 .lastName(e.getLastName())
                 .clientType(e.getClientType())
+                .cell(e.getCell()==null || e.getCell().isEmpty() ? e.getCell() : e.getCell())
+                .email(e.getEmail()==null || e.getEmail().isEmpty() ? e.getEmail() : e.getEmail())
                 .build();
     }
 }

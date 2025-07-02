@@ -131,6 +131,71 @@
 
 
 
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.10</version>
+				<executions>
+					<!-- Prepara el agente de JaCoCo antes de que se ejecuten los tests -->
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+
+					<!-- Genera el reporte luego de correr los tests -->
+					<execution>
+						<id>report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<excludes>
+								<!-- Excluir paquetes y clases -->
+								<exclude>pe/com/app/client/advice/**</exclude>
+								<exclude>pe/com/app/client/common/**</exclude>
+								<exclude>pe/com/app/client/model/**</exclude>
+								<exclude>pe/com/app/client/repository/**</exclude>
+								<exclude>**/MicroServApplication*</exclude> <!-- Por ejemplo, clase principal -->
+							</excludes>
+						</configuration>
+					</execution>
+
+					<!-- Verifica que se cumplan umbrales mínimos de cobertura -->
+					<execution>
+						<id>check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<element>BUNDLE</element>
+									<limits>
+										<limit>
+											<counter>INSTRUCTION</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.85</minimum> <!-- 50% mínimo de cobertura -->
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+							<excludes>
+								<!-- Excluir paquetes y clases -->
+								<exclude>pe/com/app/client/advice/**</exclude>
+								<exclude>pe/com/app/client/common/**</exclude>
+								<exclude>pe/com/app/client/model/**</exclude>
+								<exclude>pe/com/app/client/repository/**</exclude>
+								<exclude>**/MicroServApplication*</exclude>
+							</excludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
 		</plugins>
 	</build>
 
